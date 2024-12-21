@@ -1,0 +1,189 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(../images/background-mario.png), url(../images/background-2.png);
+    background-size: 25%, 30%;
+    background-repeat: no-repeat, repeat;
+    background-position: bottom left;
+    background-origin: bottom left;
+    user-select: none;
+}
+@media screen and (max-width: 1166px) {
+    body {
+        background-size: 0px, 30%;
+    }
+}
+/* .border {
+    height: 100vh;
+    width: auto;
+    background-repeat: repeat-y;
+    margin-right: -13px;
+    background-size: contain;
+    display: table;
+} */
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-image: url(../images/background-1.png);
+    background-size: 100%;
+    background-origin: bottom;
+    background-position: bottom;
+    
+    /* background-color: #ec38bc; */
+    padding: 20px 60px;
+}
+
+h2 {
+    font-size: 3em;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background-image: url(../images/Background_text.png);
+    box-sizing: content-box;
+    padding: 9px 47.5px;
+}
+
+.reset {
+    padding: 15px 20px;
+    height: 63px;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.reset:focus {
+    color: #000000;
+    background-color: #CA2229;
+}
+
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+/*     transform-style: preserve-3d; */
+    perspective: 500px;
+    background-image: url(../images/background-4.png);
+    background-size: cover;
+    padding: 11px;
+    box-sizing: content-box;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/empty_block.png);
+    /* background-color: #fff; */
+    background-size: cover;
+    max-width: 100px;
+
+    font-size: 3em;
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+.item:hover {
+    cursor:crosshair;
+}
+
+.item img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    max-width: min-content;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 110%;    
+}
+
+#title img {
+    height:2.5rem;
+}
+
+#div #original {
+    display: inline-block;
+}
+
+#div #substitute {
+    display: none;
+    color: red;
+}
+
+#div:hover #original {
+    display: none;
+    transition: 0.23s ease-in-out;
+}
+
+#div:hover #substitute {
+    display: inline-block;
+    transition: 0.23s ease-in-out;
+}
+
+button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 0.5rem;
+    background-image: url(../images/Background_menu.png);
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    padding: 0px 40px 0px 40px;
+    gap:115px;
+    background-image: url(../images/Background_text.png);
+    width: 475px;
+    height: 63px;
+    font-size: 1.45rem;
+    color: #000000;
+}
+
+#menu p {
+    position:sticky;
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/Question-Block.png");
+    background-size: cover;
+    /* opacity: 0.85; */
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.item.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.boxOpen::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
