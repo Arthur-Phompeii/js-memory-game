@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-width: max-content;
     background-image: url(../images/background-mario.png), url(../images/background-2.png);
     background-size: 25%, 30%;
     background-repeat: no-repeat, repeat;
@@ -10,19 +11,6 @@ body {
     background-origin: bottom left;
     user-select: none;
 }
-@media screen and (max-width: 1166px) {
-    body {
-        background-size: 0px, 30%;
-    }
-}
-/* .border {
-    height: 100vh;
-    width: auto;
-    background-repeat: repeat-y;
-    margin-right: -13px;
-    background-size: contain;
-    display: table;
-} */
 
 .container {
     position: relative;
@@ -38,6 +26,8 @@ body {
     
     /* background-color: #ec38bc; */
     padding: 20px 60px;
+    border-right:#000 5px solid;
+    border-left:#000 5px solid;
 }
 
 h2 {
@@ -187,3 +177,5 @@ button {
 .boxMatch::after {
     transform: rotateY(180deg);
 }
+
+@import url(./responsividade.css);
