@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Da Memória</title>
+  <link rel="stylesheet" href="./src/styles/reset.css">
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=restart_alt" />
+  <link rel="icon" type="image/png" href="./src/images/bell-favicon.ico">
+</head>
+
+<body>
+    <!-- <div class="border"><img src="./src/images/wave-white_border.png"></div> -->
+  <div class="container">
+    <div id="title">
+        <img src="./src/images/Coin.gif">
+        <h2>JOGO DA <span id="div">ME<span id="original">MÓRIA</span><span id="substitute">MARIO</span></span></h2>
+        <img src="./src/images/Coin.gif">
+    </div>
+    <div class="game"></div>
+    <div id="menu">
+        <p>Jogadas: <span id="score"></span></p>
+        <p>Tempo: <span id="time"></span></p>
+    </div>
+    <button class="reset" onclick="window.location.reload()"><span class="material-symbols-outlined">
+        restart_alt
+        </span>RESET GAME</button>
+  </div>
+
+  <script src="./src/scripts/engine.js" defer></script>
+</body>
+</html>
