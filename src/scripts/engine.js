@@ -62,9 +62,10 @@ if (openCards[0].innerHTML === openCards[1].innerHTML) {
 openCards = [];
 
 if (document.querySelectorAll(".boxMatch").length === powerUps.length) {
-    clearInterval(state.actions.timerId);
+    clearInterval(timerId);
     alert(`Você venceu! Seu tempo foi de ${state.values.currentTime} segundos, e você terminou em ${state.values.currentScore} jogadas.`);
     clearInterval(state.actions.scoreId);
+    newHighscoreElement()
     }
 }
 
@@ -82,7 +83,6 @@ const state = {
     },
 
     actions: {
-        timerId: setInterval(Timer, 1000),
         scoreId: setInterval(Score, 100),
     }
 }
@@ -103,3 +103,12 @@ function Timer() {
 function Score () {
     state.view.score.textContent = state.values.currentScore;
 }
+
+const resetButton = document.getElementsByClassName('reset');
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    startButton.addEventListener('click', () => {
+            timerId = setInterval(Timer, 1000)
+        });
+}); 

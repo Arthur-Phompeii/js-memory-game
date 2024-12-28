@@ -1,3 +1,5 @@
+@import url(./responsividade.css);
+
 body {
     display: flex;
     justify-content: center;
@@ -54,6 +56,11 @@ h2 {
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 0.5rem;
+    background-image: url(../images/Background_menu.png);
 }
 
 .reset:focus {
@@ -133,19 +140,11 @@ h2 {
     transition: 0.23s ease-in-out;
 }
 
-button {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    gap: 0.5rem;
-    background-image: url(../images/Background_menu.png);
-}
-
 #menu {
     display: flex;
     align-items: center;
     padding: 0px 40px 0px 40px;
-    gap:115px;
+    gap:105px;
     background-image: url(../images/Background_text.png);
     width: 475px;
     height: 63px;
@@ -177,5 +176,3 @@ button {
 .boxMatch::after {
     transform: rotateY(180deg);
 }
-
-@import url(./responsividade.css);

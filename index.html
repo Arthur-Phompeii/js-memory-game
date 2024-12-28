@@ -22,14 +22,29 @@
     </div>
     <div class="game"></div>
     <div id="menu">
-        <p>Jogadas: <span id="score"></span></p>
+        <p>Movimentos: <span id="score"></span></p>
         <p>Tempo: <span id="time"></span></p>
     </div>
-    <button class="reset" onclick="window.location.reload()"><span class="material-symbols-outlined">
+    <button class="reset"><span class="material-symbols-outlined">
         restart_alt
         </span>RESET GAME</button>
   </div>
 
+  <div id="highscore">
+    <div>
+      <h3>Nome do Jogador:</h3>
+      <input type="text" id="nameInput">
+      <button id="start">Começar</button>
+    </div>
+    <div id="highscoreList">
+      <h3>Recordes:</h3>
+      <ol id="highscoreElements"></ol>
+    
+    </div>
+
+  </div>
+
   <script src="./src/scripts/engine.js" defer></script>
+  <script src="./src/scripts/highscore.js" defer></script>
 </body>
 </html>
