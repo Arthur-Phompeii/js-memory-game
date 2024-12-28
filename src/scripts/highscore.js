@@ -44,6 +44,7 @@ let timerId
 document.addEventListener('DOMContentLoaded', () => {
 
     startButton.addEventListener('click', () => {
-            timerId = setInterval(Timer, 1000)
-        });
+        clearInterval(timerId);    
+        timerId = setInterval(Timer, 1000)
+    });
 });    

@@ -87,6 +87,12 @@ const state = {
     }
 }
 
+//Função para iniciar contagens do menu
+function interval() {
+    let scoreId 
+    scoreId = setInterval(Score, 100);
+}
+
 //menu-timer
 function formatNumber(number) { 
     return number.toString().padStart(3, '0');     
@@ -98,17 +104,31 @@ function Timer() {
 }
 
 (function () {state.view.time.textContent = formatNumber(state.values.currentTime);})()
+function timeReset() {state.view.time.textContent = formatNumber(state.values.currentTime);}
 
 //menu-score
 function Score () {
     state.view.score.textContent = state.values.currentScore;
 }
 
-const resetButton = document.getElementsByClassName('reset');
+const resetButton = document.getElementById('resetB');
+
+function clearClass() {
+    var removeClass = document.getElementsByClassName("item");
+
+    Array.from(removeClass).forEach(function(element) {
+        element.classList.remove('boxOpen', 'boxMatch')
+    });
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    startButton.addEventListener('click', () => {
-            timerId = setInterval(Timer, 1000)
+    resetButton.addEventListener('click', () => {
+        state.values.currentTime = 0
+        state.values.currentScore = 0
+        clearInterval(timerId)
+        timeReset();
+        interval();
+        clearClass();
+        document.getElementById('nameInput').value = '';
         });
 }); 
