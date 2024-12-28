@@ -130,5 +130,21 @@ document.addEventListener('DOMContentLoaded', () => {
         interval();
         clearClass();
         document.getElementById('nameInput').value = '';
-        });
+
+        shufflePowers = null
+        shufflePowers = powerUps.sort(() => (Math.random() > 0.5 ? 2 : -1));
+
+       var parent = document.getElementById('game'); 
+       var items = parent.getElementsByClassName('item'); 
+       
+       Array.from(items).forEach(function(item) { parent.removeChild(item); });
+
+        for (let i = 0; i < powerUps.length; i++) {
+        let box = document.createElement("div");
+        box.className = "item";
+        box.innerHTML = shufflePowers[i];
+        box.onclick = handleClick;
+        document.querySelector(".game").appendChild(box);
+        }
+    });
 }); 

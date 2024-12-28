@@ -1,0 +1,30 @@
+#highscore {
+    position:fixed;
+    right: 0;
+    top: 15%;
+    Padding: 10px;
+    box-sizing: border-box;
+    background-color: blue;
+    /*transform: translateY(-50%);*/
+    height: min-content;
+    max-height: 70%;
+}
+
+
+ol {
+    list-style-type: none;
+    padding: 5px 0 1px 10px;
+    margin-bottom: o;
+    width: 100%;
+}
+
+li {
+    margin-bottom: 10px
+}
+
+.font {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+}

@@ -1,4 +1,5 @@
 @import url(./responsividade.css);
+@import url(./highscore-table.css);
 
 body {
     display: flex;
