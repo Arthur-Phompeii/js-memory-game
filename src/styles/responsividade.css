@@ -1,3 +1,44 @@
+@media screen and (max-width: 1411px) {
+    #highscore {
+        width: 20%;
+    }
+
+    #nameDiv input {
+    width: 100%;
+    
+    }
+    #nameDiv button {
+        margin-left: 1px;
+        width: 100%;
+        max-width: none;
+    } 
+
+    #highscoreList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* #highscoreList h3 {
+        align-self:flex-start;
+    } */
+
+    ol {
+        padding: none;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    #highscore {
+        width: 18%;
+    }
+
+    #highscoreElements {
+        padding: 0;
+}
+
 @media screen and (max-width: 1095px) {
     body {
         background-size: 0px, 30%;
