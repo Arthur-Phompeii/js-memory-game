@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeReset();
         interval();
         clearClass();
-        document.getElementById('nameInput').value = '';
+        document.getElementById('nameInputText').value = '';
 
         shufflePowers = null
         shufflePowers = powerUps.sort(() => (Math.random() > 0.5 ? 2 : -1));
