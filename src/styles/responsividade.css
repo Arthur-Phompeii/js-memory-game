@@ -5,8 +5,8 @@
 
     #nameDiv input {
     width: 100%;
-    
     }
+
     #nameDiv button {
         margin-left: 1px;
         width: 100%;
@@ -25,7 +25,7 @@
     } */
 
     ol {
-        padding: none;
+        padding: 0;
         width: auto;
     }
 }
@@ -33,6 +33,7 @@
 @media screen and (max-width: 1130px) {
     #highscore {
         width: 18%;
+        min-width: 200px;
     }
 
     #highscoreElements {
@@ -49,7 +50,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1079px) {
 
     body {
         background: none;
@@ -72,6 +73,42 @@
         width: 540px;
         height: 63px;
     }
+
+    #title {
+        justify-content: center;
+        gap: 26px
+    }
+}
+
+@media screen and (max-width: 860px) {
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #highscore {
+        width: 500px;
+        position: relative;
+        border-radius: 10px;
+        border-right: 4px solid rgb(1, 4, 179);
+        margin-bottom: 15px;
+    }
+
+    #nameInput {
+        display: flex;
+        gap: 8px;
+    }
+
+    #nameDiv input {
+        width: 600px;
+        max-width: none;
+    }
+
+    #nameDiv button {
+        max-width: fit-content;
+        padding: 5px 7px 5px 7px;
+    } 
 }
 
 @media screen and (max-width: 661px) {

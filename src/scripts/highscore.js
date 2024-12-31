@@ -17,11 +17,13 @@ function newHighscoreElement () {
     highscore.time = state.values.currentTime; 
 
     const newHtml = (`
-        <li>
-            <p>Jogador: <span id="highscorePlayer">${highscore.name}</span></p>
-            <p>Movimentos: <span id="highscoreScore">${highscore.movements}</span></p>
-            <p>Tempo: <span id="highscoreTime">${highscore.time} segundos</span></p>
-        </li>
+        <ol>
+            <li>
+                <p>Jogador: <span id="highscorePlayer">${highscore.name}</span></p>
+                <p>Movimentos: <span id="highscoreScore">${highscore.movements}</span></p>
+                <p>Tempo: <span id="highscoreTime">${highscore.time} segundos</span></p>
+            </li>
+        </ol>
     `);
     highscoreList.innerHTML += newHtml;
 };
