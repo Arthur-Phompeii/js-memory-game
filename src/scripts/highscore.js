@@ -6,10 +6,10 @@ class HighscoreModel {
 
 //constantes
 const highscoreList = document.getElementById('highscoreElements');
-const playerName = document.getElementById('nameInput');
+const playerName = document.getElementById('nameInputText');
 const startButton = document.getElementById('start');
 
-//elemento de highscore
+//elemento de highscoregit add .
 function newHighscoreElement () {
     const highscore = new HighscoreModel()
     highscore.name = playerName.value;
