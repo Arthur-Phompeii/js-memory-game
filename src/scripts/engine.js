@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         box.className = "item";
         box.innerHTML = shufflePowers[i];
         box.onclick = handleClick;
-        document.querySelector(".game").appendChild(box);
+        document.querySelector(".game").appendChild(box);1
         }
     });
 }); 

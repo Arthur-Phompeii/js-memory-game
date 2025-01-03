@@ -1,7 +1,7 @@
 #highscore {
     position:fixed;
     right: 0;
-    top: 15%;
+    top: 12.8%;
     Padding: 10px;
     box-sizing: border-box;
     background-color: rgb(0, 74, 246);
@@ -10,7 +10,7 @@
     border-right: none;
     /*transform: translateY(-50%);*/
     height: min-content;
-    max-height: 70%;
+    max-height: 74.4%;
     overflow-y: auto;
     overflow-x: auto;
 }
@@ -84,4 +84,21 @@ li {
     background-color: rgba(7, 7, 154, 0.551);
     border-radius: 5px;
     padding: 5px;
+    overflow-x:auto;
+}
+
+#highscoreElements {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+}
+
+#absoluteList {
+    overflow-x:auto;
+}
+
+#highscoreElements ol {
+    display: flex;
+    flex-direction: row;
+    
 }
