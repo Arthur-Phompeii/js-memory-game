@@ -16,6 +16,11 @@
     #highscoreList {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+    }
+
+    #highscoreList h3 {
+        display: flex;
         align-items: center;
         justify-content: center;
     }
@@ -77,6 +82,10 @@
     #title {
         justify-content: center;
         gap: 26px
+    }
+
+    #highscore {
+        max-height: 73%;
     }
 }
 

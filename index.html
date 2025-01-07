@@ -52,7 +52,17 @@
       <div id="absoluteList">
         <ol id="highscoreElements"></ol>
       </div>
-      <button onclick="newHighscoreElement()"> Teste </button>
+      <div id="showHistory">
+        <p>Mostrar histórico:</p>
+        <div id="slider">
+          <label for="yes" class="sliderLabel">Sim</label>
+          <input type="radio" id="yes" name="showHistory" value="1" checked onclick="clearHiddenClass()">
+          <input type="radio" id="no" name="showHistory" value="0"  onclick="setIntervalHiddenClass()">
+          <label for="no" class="sliderLabel">Não</label>
+          <div class="sliderButton"></div>
+        </div>
+      </div>
+      <button onclick="newHighscoreElement()" class="test">Teste</button>
     </div>
 
   </div>

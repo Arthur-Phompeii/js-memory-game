@@ -29,14 +29,13 @@ function newHighscoreElement () {
 
     const nameFound = findPlayer(verificationName, `${highscore.name}`);
 
-
     if (nameFound) {
         const oldHtml = (`
             <li data-score="${highscore.time}" class="li">
-                <span><p>Tentativa Nº <span id="recordLength"></span></p></span>
                 <p>Jogador: <span id="highscorePlayer">${highscore.name}</span></p>
                 <p>Movimentos: <span id="highscoreScore">${highscore.movements}</span></p>
                 <p>Tempo: <span id="highscoreTime">${highscore.time} segundos</span></p>
+                 <p>Nº<span class="tryN">${getNumberOfTries()}</span></p>
             </li>
         `);
         const nameList = document.getElementById(`${highscore.name}`);
@@ -47,10 +46,10 @@ function newHighscoreElement () {
         const newHtml = (`
             <ol class="playerScore ${verificationName.length}" id="${highscore.name}" data-position="">
                 <li data-score="${highscore.time}" class="li">
-                    <span><p>Tentativa Nº <span id="recordLength"></span></p></span>
                     <p>Jogador: <span id="highscorePlayer">${highscore.name}</span></p>
                     <p>Movimentos: <span id="highscoreScore">${highscore.movements}</span></p>
                     <p>Tempo: <span id="highscoreTime">${highscore.time} segundos</span></p>
+                    <p>Nº<span class="tryN">${getNumberOfTries()}</span></p>
                 </li>
             </ol>
         `);
@@ -76,12 +75,12 @@ function newHighscoreElement () {
     console.log(`${highscore.name} foi encontrado na posição [${positionFound[0]}, ${positionFound[1]}]`);
 
     verificationName[`${positionFound[0]}`].push(Number(highscore.time));
-    
-    //tentativa de fazer uma gravação de tentativas
-    const recordOfNumber =  verificationName[`${positionFound[0]}`]
-    const recordLength = recordOfNumber.length
-    const modifyRecord = document.getElementById('recordLength')
-    modifyRecord.textContent = recordLength
+
+    function getNumberOfTries() {
+        const positionFound = findPosition(verificationName, `${highscore.name}`)
+        const numberOfTries = verificationName[`${positionFound[0]}`].length;
+        return numberOfTries;
+    }
 
     console.log(verificationName)
     console.log(verificationName.length)
@@ -132,21 +131,79 @@ function newHighscoreElement () {
 
     console.log('Menores valores de cada submatriz:', lowerArray);
 
-    //sort highscore list
-    const outterOl = document.getElementById('highscoreElements')
-    const outterItems = Array.from(outterOl.getElementsByClassName('playerScore'))
-
-    function setDataPosition (matriz) {
-        for (let i = 0; i < matriz.length; i++) {
-            const submatriz = matriz[i];
-            const element = document.getElementById(submatriz[0])
-            element.dataset.position = submatriz[1]
-            }
-    }
+    
     setDataPosition(lowerArray)
     
+    //sort highscore list
+    /*  const outterOl = document.getElementById('highscoreElements')
+    const outterItems = Array.from(outterOl.getElementsByClassName('playerScore'))
+    
+    outterItems.sort((a, b) => a.getAttribute('data-position') - b.getAttribute('data-position'));
+    
+    outterOl.innerHTML = '';
+    
+    outterItems.forEach(item => innerOl.appendChild(item)); */
 };
 
+function setHiddenClass () {
+    const element = document.getElementById('highscoreElements');
+    const elementChildren = element.children;
+
+    for (let i = 0; i < elementChildren.length; i++) {
+        const elementGrandChildren = elementChildren[i].children;
+
+        for (let j = 0; j < elementGrandChildren.length; j++) {
+            elementGrandChildren[j].classList.remove('hidden');
+        }
+
+        for (let l = 1; l < elementGrandChildren.length; l++) {
+            elementGrandChildren[l].classList.add('hidden');
+        }
+    }
+
+    const hiddenElements = document.getElementsByClassName('hidden');
+    if (hiddenElements.length > 0) { 
+        for (let i = 0; i < hiddenElements.length; i++) { 
+            hiddenElements[i].addEventListener('transitionend', () => { 
+                if (hiddenElements[i].classList.contains('hidden')) { 
+                    hiddenElements[i].style.display = 'none'; 
+                } else { 
+                    hiddenElements[i].style.display = '';
+                } 
+            }); 
+        } 
+    } else { 
+        console.error("Elementos com a classe 'hidden' não foram encontrados"); 
+    }
+}
+
+let hiddenClassId
+function setIntervalHiddenClass() {
+    hiddenClassId = setInterval(setHiddenClass, 1)
+}
+
+function clearHiddenClass () {
+    clearInterval(hiddenClassId)
+    const element = document.getElementById('highscoreElements');
+    const elementChildren = element.children;
+
+    for (let i = 0; i < elementChildren.length; i++) {
+        const elementGrandChildren = elementChildren[i].children;
+
+        for (let j = 0; j < elementGrandChildren.length; j++) {
+            elementGrandChildren[j].classList.remove('hidden');
+            elementGrandChildren[j].style.display = '';
+        }
+    }
+}
+
+function setDataPosition (matriz) {
+    for (let i = 0; i < matriz.length; i++) {
+        const submatriz = matriz[i];
+        const element = document.getElementById(submatriz[0])
+        element.dataset.position = submatriz[1]
+    }
+}
 
 
 //Botão para início da contagem de tempo
