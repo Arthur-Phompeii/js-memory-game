@@ -111,14 +111,7 @@ function newHighscoreElement () {
             // Filtre os elementos numéricos da submatriz
             const onlyNumericValues = submatriz.filter(item => typeof item === 'number');
             const onlyString = submatriz.find(item => typeof item === 'string');
-            
-            // Encontre o menor valor na submatriz atual
-            /* if (onlyNumericValues.length > 0) {
-                return Math.min(...onlyNumericValues);
-                } else {
-                    return null; // Caso a submatriz não tenha valores numéricos
-            } */
-
+       
             //encontrar menores valores
             const lowerValues = Math.min(...onlyNumericValues)
             
@@ -135,14 +128,46 @@ function newHighscoreElement () {
     setDataPosition(lowerArray)
     
     //sort highscore list
-    /*  const outterOl = document.getElementById('highscoreElements')
-    const outterItems = Array.from(outterOl.getElementsByClassName('playerScore'))
+    const outerOl = document.getElementById('highscoreElements')
+    const outerItems = Array.from(outerOl.getElementsByClassName('playerScore'))
     
-    outterItems.sort((a, b) => a.getAttribute('data-position') - b.getAttribute('data-position'));
+    outerItems.sort((a, b) => a.getAttribute('data-position') - b.getAttribute('data-position'));
+
+    console.log(outerItems)
     
-    outterOl.innerHTML = '';
+    outerOl.innerHTML = '';
     
-    outterItems.forEach(item => innerOl.appendChild(item)); */
+    outerItems.forEach(item => outerOl.appendChild(item));
+
+    function getResults (matrizOl) {
+        for (let i = 0; i < matrizOl.length; i++) {
+            const outerItemsIndex = matrizOl.indexOf(matrizOl[i]);
+            outerItems[i].dataset.results = outerItemsIndex + 1;
+        };
+    } 
+    getResults(outerItems)
+
+    function placePostionResults(matriz) {
+        for (let i = 0; i < matriz.length; i++) {
+            const element = matriz[i]
+            const verification = element.querySelector('div');
+            if (verification) {
+                verification.remove();
+            }
+            const resultDiv = document.createElement('div');
+            resultDiv.classList.add('results');
+            if (element.getAttribute('data-results') < 4) {
+                resultDiv.id = '#'+element.getAttribute('data-results')
+            } else {
+                resultDiv.id = '#badResults'
+            }
+            resultDiv.innerHTML = (`
+                <h3><span>#${element.getAttribute('data-results')}º</span></h3>
+            `)
+            element.insertBefore(resultDiv, element.firstChild);
+        }
+    };
+    placePostionResults(outerItems);
 };
 
 function setHiddenClass () {
@@ -156,7 +181,7 @@ function setHiddenClass () {
             elementGrandChildren[j].classList.remove('hidden');
         }
 
-        for (let l = 1; l < elementGrandChildren.length; l++) {
+        for (let l = 2; l < elementGrandChildren.length; l++) {
             elementGrandChildren[l].classList.add('hidden');
         }
     }
