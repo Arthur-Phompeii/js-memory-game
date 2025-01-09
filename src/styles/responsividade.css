@@ -1,17 +1,36 @@
-@media screen and (max-width: 1411px) {
+@media screen and (max-width: 1460px) {
+    #nameDiv input {
+        width: 215px;
+    }
+}
+
+@media screen and (max-width: 1420px) {
+    #nameDiv input {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
     #highscore {
         width: 20%;
     }
 
     #nameDiv input {
-    width: 100%;
+        width: 100%;
     }
 
     #nameDiv button {
-        margin-left: 1px;
         width: 100%;
         max-width: none;
     } 
+
+    #nameInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        min-width: fit-content;
+        gap: 0px;
+      }
 
     #highscoreList {
         display: flex;
@@ -25,24 +44,25 @@
         justify-content: center;
     }
 
-    /* #highscoreList h3 {
-        align-self:flex-start;
-    } */
-
     ol {
-        padding: 0;
+        padding: 5px 0 5px 10px;
         width: auto;
     }
 }
 
+@media screen and (max-width: 1275px) {
+    #showHistory p {
+        font-size: 0.77rem;
+    }
+}
 @media screen and (max-width: 1130px) {
     #highscore {
-        width: 18%;
-        min-width: 200px;
+        width: 19%;
+        min-width: 230px;
     }
 
-    #highscoreElements {
-        padding: 0;
+    #showHistory p {
+        font-size: 13px;
     }
 }
 
@@ -53,9 +73,6 @@
         justify-content: center;
         align-items: center;
     }
-}
-
-@media screen and (max-width: 1079px) {
 
     body {
         background: none;
@@ -89,7 +106,7 @@
     }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 950px) {
     
     body {
         display: flex;
@@ -106,11 +123,12 @@
 
     #nameInput {
         display: flex;
+        flex-direction: row;
         gap: 8px;
     }
 
     #nameDiv input {
-        width: 600px;
+        width: 350px;
         max-width: none;
     }
 

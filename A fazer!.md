@@ -1,4 +1,5 @@
-adicionar trecho de HTML que indica a posição das jogadas (1º, 2º, 3º...) dentro das próprias jogadas do jogadou ou somente entre os jogadores.
+Terminar responsividade
 
+criar critério de desempate com movimentos
 
-criar responsividade
+ex: armazenar os dados do movimento em uma outra constante à mesma medida que se armazena os dados do tempo, para que os indexes estejam em paridade, para então, quando se encontrar tempos iguais, encontrar os indexes desses tempos e aplicar na const dos movimentos para encontrar os dados certos para o desempate
